@@ -13,7 +13,7 @@ public class GoeuroJsonObject extends JSONObject {
 	}
 	public GoeuroJsonObject(JSONObject obj)
 	{
-		super(obj);
+		super(obj, JSONObject.getNames(obj));
 	}
 	public GoeuroJsonObject(String jsonString) throws JSONException
 	{

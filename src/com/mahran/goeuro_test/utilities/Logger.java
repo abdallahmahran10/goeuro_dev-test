@@ -23,7 +23,7 @@ public class Logger {
 
 	public void ERROR(Exception e)
 	{
-		log("ERROR: " + e.getMessage());
+		log("ERROR: cause: " +  e.getMessage());
 	}
 	
 	public void ERROR(String msg)
