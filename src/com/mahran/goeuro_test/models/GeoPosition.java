@@ -1,6 +1,8 @@
 package com.mahran.goeuro_test.models;
 
 public class GeoPosition {
+	public static final String LATITUDE_KEY = "latitude";
+	public static final String LONGITUDE_KEY = "longitude";
 	private int latitude;
 	private int longitude;
 	

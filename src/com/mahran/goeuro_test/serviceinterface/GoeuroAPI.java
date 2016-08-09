@@ -20,11 +20,12 @@ public class GoeuroAPI {
 	public ArrayList<City> suggestPosition(String cityName) {
 		try {
 			String respStr = goeuroRestServiceClient.GET(SUGGEST_POSITION_PATH + cityName);
+			Logger.getInstant().INFO("API Response: " + respStr);
 			return JsonParser.toCitiesList(respStr);
 		} catch (IOException e) {
 			logger.ERROR(e);
 		} catch (JSONException e) {
-			logger.ERROR(e);
+			logger.ERROR("Could not parse API response: "+e.getMessage());
 		}
 		return null;
 	}

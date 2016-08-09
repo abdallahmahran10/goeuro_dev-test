@@ -1,5 +1,7 @@
 package com.mahran.goeuro_test.models;
 
+import java.util.HashMap;
+
 public class City {
 
 	public static String ID_KEY = "_id";
@@ -16,9 +18,11 @@ public class City {
 	public static String COUNTRY_CODE_KEY = "countryCode";
 	public static String CORE_COUNTRY_KEY = "coreCountry";
 	public static String DISTANCE_KEY = "distance";
-	
+	public static String NAMES_KEY = "names";
+	public static String ALTERNATIVE_NAMES_KEY = "alternativeNames";
+	//
 	private int _id;
-	private String key;
+	private int key;
 	private String name;
 	private String fullName;
 	private String iata_airport_code;
@@ -31,6 +35,8 @@ public class City {
 	private String countryCode;
 	private boolean coreCountry;
 	private double distance;
+	private HashMap<String, String> names;
+	private HashMap<String, String> alternativeNames;
 	//
 	public int get_id() {
 		return _id;
@@ -38,10 +44,10 @@ public class City {
 	public void set_id(int _id) {
 		this._id = _id;
 	}
-	public String getKey() {
+	public int getKey() {
 		return key;
 	}
-	public void setKey(String key) {
+	public void setKey(int key) {
 		this.key = key;
 	}
 	public String getName() {
@@ -115,6 +121,18 @@ public class City {
 	}
 	public void setDistance(double distance) {
 		this.distance = distance;
+	}
+	public HashMap<String, String> getNames() {
+		return names;
+	}
+	public void setNames(HashMap<String, String> names) {
+		this.names = names;
+	}
+	public HashMap<String, String> getAlternativeNames() {
+		return alternativeNames;
+	}
+	public void setAlternativeNames(HashMap<String, String> alternativeNames) {
+		this.alternativeNames = alternativeNames;
 	}
 	
 }
