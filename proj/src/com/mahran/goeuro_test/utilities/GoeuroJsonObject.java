@@ -7,6 +7,7 @@ import org.json.JSONObject;
 
 public class GoeuroJsonObject extends JSONObject {
 
+	Logger logger = Logger.getInstant();
 	public GoeuroJsonObject()
 	{
 		super();
@@ -19,15 +20,13 @@ public class GoeuroJsonObject extends JSONObject {
 	{
 		super(jsonString);
 	}
-	//
-	public Logger _logger = Logger.getInstant();
 
 	@Override
 	public int getInt(String key) {
 		try {
 			return super.getInt(key);
 		} catch (JSONException e) {
-			Logger.getInstant().ERROR(e);
+			logger.WARNING("JSONObject["+ key+"] is null or not find in the json string");
 			return 0;
 		}
 	}
@@ -38,7 +37,7 @@ public class GoeuroJsonObject extends JSONObject {
 		try {
 			return super.getString(key);
 		} catch (JSONException e) {
-			Logger.getInstant().ERROR(e);
+			logger.WARNING("JSONObject["+ key+"] is null or not find in the json string");
 			return "";
 		}
 	}
@@ -49,7 +48,7 @@ public class GoeuroJsonObject extends JSONObject {
 		try {
 			return super.getBoolean(key);
 		} catch (JSONException e) {
-			Logger.getInstant().ERROR(e);
+			logger.WARNING("JSONObject["+ key+"] is null or not find in the json string");
 			return false;
 		}
 	}
@@ -60,7 +59,7 @@ public class GoeuroJsonObject extends JSONObject {
 		try {
 			return super.getDouble(key);
 		} catch (JSONException e) {
-			Logger.getInstant().ERROR(e);
+			logger.WARNING("JSONObject["+ key+"] is null or not find in the json string");
 			return 0;
 		}
 	}
@@ -70,7 +69,7 @@ public class GoeuroJsonObject extends JSONObject {
 		try {
 			return super.getJSONObject(key);
 		} catch (JSONException e) {
-			Logger.getInstant().ERROR(e);
+			logger.WARNING("JSONObject["+ key+"] is null or not find in the json string");
 			return new GoeuroJsonObject();
 		}
 	}

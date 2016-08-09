@@ -36,7 +36,7 @@ public class CSVUtilities {
 				sb.append('\n');
 			}
 			String data = sb.toString();
-			Logger.getInstant().INFO(data);
+			Logger.getInstant().INFO("Data to dump: \n" + data);
 			writer.write(data);
 			writer.close();
 			return true;
