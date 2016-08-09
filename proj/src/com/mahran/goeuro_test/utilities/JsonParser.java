@@ -7,21 +7,54 @@ import org.json.JSONException;
 
 import com.mahran.goeuro_test.models.*;
 
+/**
+ * parse json string to the corresponding model
+ * 
+ * @author Abdallah
+ *
+ */
 public class JsonParser {
-	/////////////////////
+	/**
+	 * parse string to city list
+	 * 
+	 * @param jsonString
+	 *            string to parse
+	 * @return array of cities object
+	 * @throws JSONException
+	 *             throw exception if fails to parse
+	 */
+
 	public static ArrayList<City> toCitiesList(String jsonString) throws JSONException {
 		JSONArray anJsonArray = new JSONArray(jsonString);
 		ArrayList<City> cities = new ArrayList<City>();
 		for (int i = 0; i < anJsonArray.length(); i++)
-			cities.add(toCity(new GoeuroJsonObject( anJsonArray.getJSONObject(i))));
+			cities.add(toCity(new GoeuroJsonObject(anJsonArray.getJSONObject(i))));
 		return cities;
 	}
 
+	/**
+	 * parse string to city model
+	 * 
+	 * @param jsonString
+	 *            string to parse
+	 * @return city model
+	 * @throws JSONException
+	 *             throw exception if fails to parse
+	 */
 	public static City toCity(String jsonString) throws JSONException {
-		
+
 		return toCity(new GoeuroJsonObject(jsonString));
 	}
 
+	/**
+	 * extract data from JSONObject and set it to city model
+	 * 
+	 * @param jsonObj
+	 *            source json object
+	 * @return City model
+	 * @throws JSONException
+	 *             throw exception if fails to extract a value
+	 */
 	public static City toCity(GoeuroJsonObject jsonObj) throws JSONException {
 		City city = new City();
 		city.set_id(jsonObj.getInt(City.ID_KEY));
@@ -41,10 +74,28 @@ public class JsonParser {
 		return city;
 	}
 
+	/**
+	 * parse string to GeoPosition model
+	 * 
+	 * @param jsonString
+	 *            string to parse
+	 * @return GeoPosition model
+	 * @throws JSONException
+	 *             throw exception if fails to parse
+	 */
 	public static GeoPosition toGeoPosition(String jsonString) throws JSONException {
 		return toGeoPosition(new GoeuroJsonObject(jsonString));
 	}
 
+	/**
+	 * extract data from JSONObject and set it to GeoPosition model
+	 * 
+	 * @param jsonObj
+	 *            source json object
+	 * @return GeoPosition model
+	 * @throws JSONException
+	 *             throw exception if fails to extract a value
+	 */
 	public static GeoPosition toGeoPosition(GoeuroJsonObject jsonObj) throws JSONException {
 		GeoPosition geoPosition = new GeoPosition();
 		geoPosition.setLatitude(jsonObj.getInt(GeoPosition.LATITUDE_KEY));
