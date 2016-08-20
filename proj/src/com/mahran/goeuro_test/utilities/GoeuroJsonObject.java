@@ -5,7 +5,7 @@ import org.json.JSONObject;
 
 /**
  * Override JsonObject to handle the null values sent in the JSON response
- * 
+ *
  * @author Abdallah
  *
  */

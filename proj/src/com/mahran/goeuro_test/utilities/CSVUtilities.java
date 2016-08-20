@@ -1,15 +1,14 @@
 package com.mahran.goeuro_test.utilities;
 
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.io.Writer;
 import java.nio.charset.StandardCharsets;
+import java.security.InvalidParameterException;
 import java.util.ArrayList;
 
 import com.mahran.goeuro_test.models.City;
@@ -29,6 +28,8 @@ public class CSVUtilities {
 	 * @return true if succeeded, false otherwise
 	 */
 	public static boolean writeToCSV(String csvFilePath, ArrayList<City> cities) {
+		if(csvFilePath.isEmpty())
+			throw new InvalidParameterException("CSV filename can not be empty");
 		Logger.getInstant().INFO("Saving records data in CSV file.");
 		Writer writer;
 		try {
